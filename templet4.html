@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#EF4444",
+              secondary: "#7F1D1D",
+              light: "#FEF2F2",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .bg-pattern {
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ef4444' fill-opacity='0.05'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 20.83l2.83-2.83 1.41 1.41L1.41 22H0v-1.17zM0 3.07l2.83-2.83 1.41 1.41L1.41 4.24H0V3.07zM17.76 40l2.83-2.83 1.41 1.41L19.17 40h-1.41zM17.76 22.24l2.83-2.83 1.41 1.41L19.17 23.66h-1.41zM17.76 4.48l2.83-2.83 1.41 1.41L19.17 5.9h-1.41zM35.52 40l2.83-2.83 1.41 1.41L36.93 40h-1.41zM35.52 22.24l2.83-2.83 1.41 1.41L36.93 23.66h-1.41zM35.52 4.48l2.83-2.83 1.41 1.41L36.93 5.9h-1.41zM1.41 40l2.83-2.83 1.41 1.41L2.83 40H1.41zM1.41 22.24l2.83-2.83 1.41 1.41L2.83 23.66H1.41zM1.41 4.48l2.83-2.83 1.41 1.41L2.83 5.9H1.41zM19.17 40l2.83-2.83 1.41 1.41L20.59 40h-1.42zM19.17 22.24l2.83-2.83 1.41 1.41-2.83 2.83h-1.41zM19.17 4.48l2.83-2.83 1.41 1.41-2.83 2.83h-1.41zM36.93 40l2.83-2.83 1.41 1.41L38.34 40h-1.41zM36.93 22.24l2.83-2.83 1.41 1.41-2.83 2.83h-1.41zM36.93 4.48l2.83-2.83 1.41 1.41-2.83 2.83h-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .skill-progress {
+        transition: width 1.5s ease-in-out;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .testimonial-card {
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: scale(1.03);
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-primary"
+          >Dev<span class="text-secondary">Folio</span></a
+        >
+
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-primary transition"
+            >Home</a
+          >
+          <a href="#about" class="text-gray-700 hover:text-primary transition"
+            >About</a
+          >
+          <a href="#skills" class="text-gray-700 hover:text-primary transition"
+            >Skills</a
+          >
+          <a
+            href="#services"
+            class="text-gray-700 hover:text-primary transition"
+            >Services</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-700 hover:text-primary transition"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="text-gray-700 hover:text-primary transition"
+            >Testimonials</a
+          >
+          <a href="#contact" class="text-gray-700 hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+
+        <button
+          class="md:hidden text-gray-700 focus:outline-none"
+          id="menu-toggle"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-white w-full py-3 px-4 shadow-md"
+        id="mobile-menu"
+      >
+        <div class="flex flex-col space-y-3">
+          <a href="#home" class="text-gray-700 hover:text-primary transition"
+            >Home</a
+          >
+          <a href="#about" class="text-gray-700 hover:text-primary transition"
+            >About</a
+          >
+          <a href="#skills" class="text-gray-700 hover:text-primary transition"
+            >Skills</a
+          >
+          <a
+            href="#services"
+            class="text-gray-700 hover:text-primary transition"
+            >Services</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-700 hover:text-primary transition"
+            >Projects</a
+          >
+          <a
+            href="#testimonials"
+            class="text-gray-700 hover:text-primary transition"
+            >Testimonials</a
+          >
+          <a href="#contact" class="text-gray-700 hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-pattern">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              Hi, I'm <span class="text-primary">Alex Johnson</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-700">
+              Full Stack Developer
+            </h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-lg">
+              I create beautiful, functional, and responsive web applications
+              with modern technologies and best practices.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="px-8 py-3 bg-primary text-white font-medium rounded-full hover:bg-secondary transition shadow-lg hover:shadow-xl"
+              >
+                Hire Me
+              </a>
+              <a
+                href="#projects"
+                class="px-8 py-3 border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition"
+              >
+                View Projects
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+              <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-light p-2">
+                <svg
+                  class="w-full h-full text-primary"
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M47.7,-57.2C59.9,-45.8,67.2,-29.6,69.2,-13.1C71.2,3.4,68,20.1,59.5,33.5C51.1,46.9,37.3,57,21.9,62.3C6.5,67.7,-10.5,68.3,-25.8,63.1C-41.1,57.9,-54.6,47,-63.1,32.5C-71.6,18,-75,0,-70.8,-15.3C-66.6,-30.6,-54.8,-43.3,-41.2,-54.5C-27.6,-65.7,-12.2,-75.5,2.4,-78.3C17,-81.1,35.5,-68.7,47.7,-57.2Z"
+                    transform="translate(100 100)"
+                  />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    class="w-48 h-48 md:w-64 md:h-64"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill="#7F1D1D"
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg"
+              >
+                <svg
+                  class="w-10 h-10 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">About Me</h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <div
+              class="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden shadow-xl"
+            >
+              <svg
+                class="w-full h-full text-primary"
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#EF4444"
+                  d="M47.7,-57.2C59.9,-45.8,67.2,-29.6,69.2,-13.1C71.2,3.4,68,20.1,59.5,33.5C51.1,46.9,37.3,57,21.9,62.3C6.5,67.7,-10.5,68.3,-25.8,63.1C-41.1,57.9,-54.6,47,-63.1,32.5C-71.6,18,-75,0,-70.8,-15.3C-66.6,-30.6,-54.8,-43.3,-41.2,-54.5C-27.6,-65.7,-12.2,-75.5,2.4,-78.3C17,-81.1,35.5,-68.7,47.7,-57.2Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  class="w-48 h-48"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#7F1D1D"
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 md:pl-12">
+            <h3 class="text-2xl font-semibold mb-4 text-secondary">
+              Who am I?
+            </h3>
+            <p class="text-gray-700 mb-4">
+              I'm a passionate Full Stack Developer with over 5 years of
+              experience creating modern web applications. I specialize in
+              JavaScript technologies like React, Node.js, and Express, with a
+              strong foundation in HTML, CSS, and database design.
+            </p>
+            <p class="text-gray-700 mb-6">
+              My approach combines technical expertise with creative
+              problem-solving to deliver solutions that are not only functional
+              but also visually appealing and user-friendly.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <p class="font-medium">Name:</p>
+                <p class="text-gray-600">Alex Johnson</p>
+              </div>
+              <div>
+                <p class="font-medium">Email:</p>
+                <p class="text-gray-600">alex@example.com</p>
+              </div>
+              <div>
+                <p class="font-medium">Location:</p>
+                <p class="text-gray-600">San Francisco, CA</p>
+              </div>
+              <div>
+                <p class="font-medium">Availability:</p>
+                <p class="text-gray-600">Freelance/Full-time</p>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              class="inline-block px-8 py-3 bg-primary text-white font-medium rounded-full hover:bg-secondary transition shadow-lg"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">My Skills</h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">HTML/CSS</span>
+              <span>95%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-primary h-2.5 rounded-full skill-progress"
+                style="width: 95%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">JavaScript</span>
+              <span>90%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-primary h-2.5 rounded-full skill-progress"
+                style="width: 90%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">React</span>
+              <span>85%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-primary h-2.5 rounded-full skill-progress"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">Node.js</span>
+              <span>80%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-primary h-2.5 rounded-full skill-progress"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">UI/UX Design</span>
+              <span>75%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-primary h-2.5 rounded-full skill-progress"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span class="font-medium">Database Design</span>
+              <span>85%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-primary h-2.5 rounded-full skill-progress"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center"
+        >
+          <div
+            class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <div class="text-4xl text-primary mb-2">
+              <i class="fab fa-html5"></i>
+            </div>
+            <h4 class="font-medium">HTML5</h4>
+          </div>
+
+          <div
+            class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <div class="text-4xl text-primary mb-2">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h4 class="font-medium">CSS3</h4>
+          </div>
+
+          <div
+            class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <div class="text-4xl text-primary mb-2">
+              <i class="fab fa-js"></i>
+            </div>
+            <h4 class="font-medium">JavaScript</h4>
+          </div>
+
+          <div
+            class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <div class="text-4xl text-primary mb-2">
+              <i class="fab fa-react"></i>
+            </div>
+            <h4 class="font-medium">React</h4>
+          </div>
+
+          <div
+            class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <div class="text-4xl text-primary mb-2">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h4 class="font-medium">Node.js</h4>
+          </div>
+
+          <div
+            class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <div class="text-4xl text-primary mb-2">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4 class="font-medium">MongoDB</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">My Services</h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            I offer a wide range of services to help businesses and individuals
+            establish their online presence and achieve their digital goals.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="service-card bg-white p-6 rounded-lg shadow-lg transition duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+            <p class="text-gray-600 mb-4">
+              Custom website development with modern technologies to create
+              responsive, fast, and user-friendly web applications.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Responsive Design
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Modern Frameworks
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Performance Optimization
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="service-card bg-white p-6 rounded-lg shadow-lg transition duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+            <p class="text-gray-600 mb-4">
+              Creating intuitive and engaging user interfaces with a focus on
+              user experience and modern design principles.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                User-Centered Design
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Wireframing & Prototyping
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Visual Design
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="service-card bg-white p-6 rounded-lg shadow-lg transition duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">API Development</h3>
+            <p class="text-gray-600 mb-4">
+              Building robust and scalable APIs to power your web and mobile
+              applications with secure and efficient data handling.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                RESTful APIs
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                GraphQL
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Authentication & Security
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="service-card bg-white p-6 rounded-lg shadow-lg transition duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">E-commerce Solutions</h3>
+            <p class="text-gray-600 mb-4">
+              Building online stores with secure payment processing, inventory
+              management, and user-friendly shopping experiences.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Shopping Cart Systems
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Payment Integration
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Inventory Management
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="service-card bg-white p-6 rounded-lg shadow-lg transition duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Performance Optimization</h3>
+            <p class="text-gray-600 mb-4">
+              Improving the speed and efficiency of your existing web
+              applications for better user experience and SEO rankings.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Code Optimization
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Load Time Reduction
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                SEO Improvements
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="service-card bg-white p-6 rounded-lg shadow-lg transition duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-light rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Consultation & Training</h3>
+            <p class="text-gray-600 mb-4">
+              Expert advice on technology choices, architecture decisions, and
+              training for your development team.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Technical Consulting
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Code Reviews
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-4 h-4 text-primary mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Team Workshops
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">My Projects</h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and
+            expertise.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg"
+          >
+            <div class="relative">
+              <div class="h-56 bg-gray-200 flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 opacity-0 project-overlay flex items-center justify-center transition duration-300"
+              >
+                <a
+                  href="#"
+                  class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+              <p class="text-gray-600 mb-4">
+                A full-featured online store with product management, shopping
+                cart, and secure payment processing.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >MongoDB</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg"
+          >
+            <div class="relative">
+              <div class="h-56 bg-gray-200 flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 opacity-0 project-overlay flex items-center justify-center transition duration-300"
+              >
+                <a
+                  href="#"
+                  class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+              <p class="text-gray-600 mb-4">
+                A collaborative task management application with real-time
+                updates, notifications, and team features.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >Vue.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >Express</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >Socket.io</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg"
+          >
+            <div class="relative">
+              <div class="h-56 bg-gray-200 flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 opacity-0 project-overlay flex items-center justify-center transition duration-300"
+              >
+                <a
+                  href="#"
+                  class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+              <p class="text-gray-600 mb-4">
+                A modern and responsive portfolio website for a digital agency
+                with animated sections and contact form.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >HTML5</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >CSS3</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >JavaScript</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg"
+          >
+            <div class="relative">
+              <div class="h-56 bg-gray-200 flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 opacity-0 project-overlay flex items-center justify-center transition duration-300"
+              >
+                <a
+                  href="#"
+                  class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Analytics Dashboard</h3>
+              <p class="text-gray-600 mb-4">
+                A data visualization dashboard with interactive charts, filters,
+                and real-time data updates.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >D3.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >Firebase</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg"
+          >
+            <div class="relative">
+              <div class="h-56 bg-gray-200 flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 opacity-0 project-overlay flex items-center justify-center transition duration-300"
+              >
+                <a
+                  href="#"
+                  class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Video Streaming App</h3>
+              <p class="text-gray-600 mb-4">
+                A video streaming platform with user authentication, playlists,
+                and content management features.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >AWS</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg"
+          >
+            <div class="relative">
+              <div class="h-56 bg-gray-200 flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 opacity-0 project-overlay flex items-center justify-center transition duration-300"
+              >
+                <a
+                  href="#"
+                  class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Social Network</h3>
+              <p class="text-gray-600 mb-4">
+                A social networking platform with profiles, posts, comments, and
+                real-time notifications.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >GraphQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-light text-primary text-sm rounded-full"
+                  >MongoDB</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a
+            href="#"
+            class="inline-block px-8 py-3 bg-primary text-white font-medium rounded-full hover:bg-secondary transition shadow-lg"
+          >
+            View All Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">
+            Client Testimonials
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Here's what my clients have to say about working with me.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="testimonial-card bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl"
+              >
+                S
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold">Sarah Johnson</h4>
+                <p class="text-gray-600 text-sm">CEO, TechStart</p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="text-gray-600">
+              "Alex delivered our project on time and exceeded our expectations.
+              The website is not only beautiful but also performs exceptionally
+              well. We've seen a significant increase in user engagement since
+              launch."
+            </p>
+          </div>
+
+          <div class="testimonial-card bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-xl"
+              >
+                M
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold">Michael Chen</h4>
+                <p class="text-gray-600 text-sm">Founder, DataViz</p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="text-gray-600">
+              "Working with Alex was a pleasure. The dashboard application they
+              built for us has transformed how we analyze our data. Their
+              attention to detail and technical expertise is impressive."
+            </p>
+          </div>
+
+          <div class="testimonial-card bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl"
+              >
+                L
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold">Lisa Rodriguez</h4>
+                <p class="text-gray-600 text-sm">
+                  Marketing Director, StyleShop
+                </p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p class="text-gray-600">
+              "Our e-commerce site has never looked better! Alex understood our
+              brand and created a shopping experience that our customers love.
+              Sales have increased by 40% since the redesign."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">Get In Touch</h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss how I can help you? Feel
+            free to reach out!
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/2">
+            <form class="bg-white p-6 rounded-lg shadow-lg">
+              <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-secondary transition shadow-lg"
+              >
+                Send Message
+              </button>
+
+              <p class="text-center text-sm text-gray-500 mt-4">
+                This is a demo contact form. In a real implementation, it would
+                be connected to a backend service.
+              </p>
+            </form>
+          </div>
+
+          <div class="md:w-1/2">
+            <div class="bg-white p-6 rounded-lg shadow-lg h-full">
+              <h3 class="text-2xl font-semibold mb-6 text-secondary">
+                Contact Information
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 bg-light rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <svg
+                      class="w-6 h-6 text-primary"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium mb-1">Location</h4>
+                    <p class="text-gray-600">San Francisco, California</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 bg-light rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <svg
+                      class="w-6 h-6 text-primary"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                      ></path>
+                      <path
+                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium mb-1">Email</h4>
+                    <p class="text-gray-600">alex@example.com</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 bg-light rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <svg
+                      class="w-6 h-6 text-primary"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-medium mb-1">Phone</h4>
+                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <h4 class="font-medium mb-4">Follow Me</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-light rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-light rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-light rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-light rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition"
+                  >
+                    <i class="fab fa-dribbble"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <a href="#" class="text-2xl font-bold"
+              >Dev<span class="text-primary">Folio</span></a
+            >
+          </div>
+
+          <div class="flex space-x-6 mb-4 md:mb-0">
+            <a href="#home" class="hover:text-primary transition">Home</a>
+            <a href="#about" class="hover:text-primary transition">About</a>
+            <a href="#skills" class="hover:text-primary transition">Skills</a>
+            <a href="#services" class="hover:text-primary transition"
+              >Services</a
+            >
+            <a href="#projects" class="hover:text-primary transition"
+              >Projects</a
+            >
+            <a href="#contact" class="hover:text-primary transition">Contact</a>
+          </div>
+
+          <div>
+            <p>&copy; 2023 DevFolio. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary
+    text-white rounded-full shadow-lg flex items-center justify-
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'94c8d3177193ffa3',t:'MTc0OTM5MDI3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
